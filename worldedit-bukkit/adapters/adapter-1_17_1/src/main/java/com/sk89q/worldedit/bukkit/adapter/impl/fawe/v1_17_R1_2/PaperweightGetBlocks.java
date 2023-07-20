@@ -74,6 +74,7 @@ import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Function;
@@ -1021,7 +1022,7 @@ public class PaperweightGetBlocks extends CharGetBlocks implements BukkitGetBloc
 
     @Override
     @SuppressWarnings("unchecked")
-    public synchronized boolean trim(boolean aggressive) {
+    public boolean trim(boolean aggressive) {
         skyLight = new DataLayer[getSectionCount()];
         blockLight = new DataLayer[getSectionCount()];
         if (aggressive) {
